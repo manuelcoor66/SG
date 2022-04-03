@@ -6,8 +6,7 @@ import { TrackballControls } from '../libs/TrackballControls.js'
 
 // Clases de mi proyecto
 
-import { ObjetoBarrido } from './ObjetoBarrido.js'
-import { CorazonBarrido } from './CorazonBarrido.js'
+import { MyObjeto } from './MyObjeto.js'
  
 /// La clase fachada del modelo
 /**
@@ -34,31 +33,17 @@ import { CorazonBarrido } from './CorazonBarrido.js'
      // Tendremos una cámara con un control de movimiento con el ratón
      this.createCamera();
 
+     // Un suelo 
+     this.createGround ();
+
      // Ejes de la escena
      this.axis = new THREE.AxesHelper(50);
      this.add(this.axis);
 
      // Por último creamos los modelos que aparecerán en la escena.
-     this.corazon = new CorazonBarrido();
-     this.corazon.position.x = 20.0;
-     this.add(this.corazon);
-
-     /*this.rombo = new Rombo();
-     this.add(this.rombo);*/
-
-     this.barrido = new ObjetoBarrido();
-     this.add(this.barrido);
-
-     /*this.pica = new Pica();
-     this.add(this.pica);
-
-     this.barrido1 = new Barrido();
-     this.barrido1.position.x = -40;
-     this.add(this.barrido1);
-
-     this.barrido2 = new Barrido();
-     this.barrido2.position.x = 40;
-     this.add(this.barrido2);*/
+     this.objeto = new MyObjeto(this.gui, "Coche");
+     this.objeto.translateY(0.6);
+     this.add(this.objeto);
   }
 
   initStats() {
@@ -227,8 +212,7 @@ import { CorazonBarrido } from './CorazonBarrido.js'
     this.cameraControl.update();
     
     // Se actualiza el resto del modelo
-    this.barrido.update();
-    this.corazon.update();
+    this.objeto.update();
     
     // Le decimos al renderizador "visualiza la escena que te indico usando la cámara que te estoy pasando"
     this.renderer.render (this, this.getCamera());

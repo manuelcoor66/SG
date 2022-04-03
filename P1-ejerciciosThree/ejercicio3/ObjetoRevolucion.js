@@ -11,23 +11,12 @@ class ObjetoRevolucion extends THREE.Object3D {
      // Puntos
      this.points = [];
      this.points.push(new THREE.Vector3(0.0,0.0,0.0));
-     this.points.push(new THREE.Vector3(3.0,0.0,0.0));
-     this.points.push(new THREE.Vector3(3.0,1.0,0.0));
-     this.points.push(new THREE.Vector3(2.75,1.5,0.0));
-     this.points.push(new THREE.Vector3(2.0,2.25,0.0));
-     this.points.push(new THREE.Vector3(1.75,3.25,0.0));
-     this.points.push(new THREE.Vector3(1.5,4.5,0.0));
-     this.points.push(new THREE.Vector3(1.25,6.0,0.0));
-     this.points.push(new THREE.Vector3(1.25,7.0,0.0));
-     this.points.push(new THREE.Vector3(1.5,7.25,0.0));
-     this.points.push(new THREE.Vector3(1.75,7.75,0.0));
-     this.points.push(new THREE.Vector3(2.0,8.5,0.0));
-     this.points.push(new THREE.Vector3(2.0,9.0,0.0));
-     this.points.push(new THREE.Vector3(1.75,9.75,0.0));
-     this.points.push(new THREE.Vector3(1.5,10.25,0.0));
-     this.points.push(new THREE.Vector3(1.25,10.5,0.0));
-     this.points.push(new THREE.Vector3(0.75,10.75,0.0));
-     this.points.push(new THREE.Vector3(0.0,11.0,0.0));
+     this.points.push(new THREE.Vector3(4.0,0.0,0.0));
+     this.points.push(new THREE.Vector3(0.0,5.0,0.0));
+     this.points.push(new THREE.Vector3(-0.1,4.9,0.0));
+     this.points.push(new THREE.Vector3(3.9,-0.1,0.0));
+     this.points.push(new THREE.Vector3(-0.1,-0.1,0.0));
+
 
      // Para crear la fugura por revolución
      this.latheGeometry = new THREE.Mesh(new THREE.LatheGeometry(this.points, this.guiControls.segments, this.guiControls.phiStart, this.guiControls.phiLength), new THREE.MeshNormalMaterial());

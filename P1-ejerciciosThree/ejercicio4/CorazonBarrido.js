@@ -1,29 +1,22 @@
 import * as THREE from '../libs/three.module.js'
 
-class ObjetoBarrido extends THREE.Object3D {
+class CorazonBarrido extends THREE.Object3D {
    constructor() {
       super();
 
-      // Instrucciones para crear el contorno
-      var contornoBarrido = new THREE.Shape();
-      contornoBarrido.moveTo(0, 4.75);
-      contornoBarrido.lineTo(2.375, 0);
-      contornoBarrido.lineTo(0, -4.75);
-      contornoBarrido.lineTo(-2.375, 0);
-      contornoBarrido.lineTo(0, 4.75);
+      const heartShape = new THREE.Shape();
 
-      // Camino del barrido
-      var pts = [];
-      pts.push(new THREE.Vector3(0.0, 0.0, 0.0));
-      pts.push(new THREE.Vector3(0.0, 0.0, 5.0));
-      pts.push(new THREE.Vector3(0.0, 15.0, 10.0));
-      pts.push(new THREE.Vector3(-5.0, 15.0, 15.0));
-      var camino = new THREE.CatmullRomCurve3(pts);
+      heartShape.moveTo( 2.5, 2.5 );
+      heartShape.bezierCurveTo( 2.5, 2.5, 2.0, 0, 0, 0 );
+      heartShape.bezierCurveTo( - 3.0, 0, - 3.0, 3.5, - 3.0, 3.5 );
+      heartShape.bezierCurveTo( - 3.0, 5.5, - 1.0, 7.7, 2.5, 9.5 );
+      heartShape.bezierCurveTo( 6.0, 7.7, 8.0, 5.5, 8.0, 3.5 );
+      heartShape.bezierCurveTo( 8.0, 3.5, 8.0, 0, 5.0, 0 );
+      heartShape.bezierCurveTo( 3.5, 0, 2.5, 2.5, 2.5, 2.5 );
 
-      var opciones = {amount: 1, bevelEnabled: true, bevelSegments: 10, steps: 20, curveSegments: 4, bevelSize: 1, bevelThickness: 1, extrudePath: camino};
+      const extrudeSettings = { depth: 1, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
 
-		// Construir geometría a partir del contorno
-      var geometriaBarrido = new THREE.ExtrudeGeometry(contornoBarrido, opciones);
+      const geometriaBarrido = new THREE.ExtrudeGeometry( heartShape, extrudeSettings );
 		// Material
       var materialBarrido = new THREE.MeshNormalMaterial();
       
@@ -48,10 +41,10 @@ class ObjetoBarrido extends THREE.Object3D {
       // Después, la rotación en Y
       // Luego, la rotación en X
       // Y por último la traslación
+      this.e.rotation.z += 0.02;
       this.ab.rotation.x += 0.02;
-      this.ab.rotation.y += 0.02;
-      this.ab.rotation.z += 0.02;
+      this.cd.rotation. x += 0.02;
    }
 }
 
-export { ObjetoBarrido }
+export { CorazonBarrido }
